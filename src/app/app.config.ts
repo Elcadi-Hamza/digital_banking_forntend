@@ -1,11 +1,32 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { routes } from './app.routes';
+import { AppRoutingModule } from './app.routes';
+import { AppComponent } from './app';
+import { NavbarComponent } from './navbar/navbar';
+import { CustomersComponent } from './customers/customers';
+import { AccountsComponent } from './accounts/accounts';
+import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
+import { NewCustomerComponent } from './new-customer/new-customer';
+import { CustomerAccountsComponent } from './customer-accounts/customer-accounts';
 
-export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
-  ]
-};
+@NgModule({
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    CustomersComponent,
+    AccountsComponent,
+    NewCustomerComponent,
+    CustomerAccountsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
