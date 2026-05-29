@@ -19,8 +19,7 @@ This is the frontend part of the Digital Banking application. It is built with A
 - Angular Router
 - HttpClient
 - RxJS
-- Bootstrap (or UI framework used)
-- Chart.js (if dashboard is included)
+- Bootstrap
 
 ## Project Structure
 ```
