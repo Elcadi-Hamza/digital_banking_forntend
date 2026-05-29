@@ -1,59 +1,79 @@
-# EbankingFrontend
+# eBanking Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.8.
+This is the frontend part of the Digital Banking application. It is built with Angular and provides an interface to manage customers, bank accounts, and banking operations by consuming a Spring Boot REST API.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Customer management (create, update, delete, search)
+- Bank account management (current & savings accounts)
+- Customer accounts overview
+- Account operations (DEBIT / CREDIT)
+- Navigation system (navbar)
+- Integration with backend REST API
+- Environment-based configuration
 
-```bash
+## Tech Stack
+
+- Angular
+- TypeScript
+- Angular Router
+- HttpClient
+- RxJS
+- Bootstrap (or UI framework used)
+- Chart.js (if dashboard is included)
+
+## Project Structure
+```
+src/
+├── app/
+│ ├── accounts/
+│ ├── customer-accounts/
+│ ├── customers/
+│ ├── model/
+│ ├── navbar/
+│ ├── new-customer/
+│ └── services/
+└── environments/
+```
+
+## Services
+
+The application uses Angular services to communicate with the backend API:
+
+- CustomerService → manage customers
+- AccountService → manage bank accounts
+- OperationService → handle DEBIT / CREDIT operations
+
+## Models
+
+TypeScript models are used to represent backend entities such as:
+
+- Customer
+- BankAccount
+- AccountOperation
+
+## Configuration
+
+API configuration is managed in:
+```
+src/app.config/
+src/environments/
+```
+Example:
+```ts
+export const environment = {
+  production: false,
+  backendHost : "http://localhost:8085"
+};
+```
+
+## Run project
+```
+npm install
 ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+## Backend Requirement
+This frontend requires the Spring Boot [backend](https://github.com/Elcadi-Hamza/digital-banking-backend) to be running:
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+http://localhost:8080
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
